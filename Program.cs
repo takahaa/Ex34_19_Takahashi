@@ -16,9 +16,18 @@ namespace Interface_ShapeSolid
             {
                 Console.WriteLine($"体積={solid.Volume},表面積={solid.Surface}");
             }
+            //3角柱でジェネリック化したColumnを利用する
+            Column<Triangle> trianglePrism = new Column<Triangle>(new Triangle(3, 2, 1), 4);
+
+            //3角柱
+            Column<Hexagon> hexagon = new Column<Hexagon>(new Hexagon(2),5);
+
             RectAngle[] rectAngles = new RectAngle[] { new RectAngle(3, 7), new RectAngle(4, 7),new RectAngle(7,3)};
             Console.WriteLine(rectAngles[0] == rectAngles[1]);
             Console.WriteLine(rectAngles[0] == rectAngles[2]);
+            
+            
+            
             /*            // 幅3,高さ4,奥行5の箱の表面積を求める（インスタンスを作らずに計算）
                         TriangularPrism triangularPrism1 = new TriangularPrism(3, 4, 6);
                         var s1 = triangularPrism1.GetSurface();
