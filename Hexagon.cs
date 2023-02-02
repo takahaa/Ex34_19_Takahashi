@@ -5,24 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ShapeSolid
-{    class Hexagon : IShape
+{
+    internal class Hexagon : IShape
     {
-        public float Width { get { return this.Width; } }
-        public float Height { get { return this.Height; } }
-        public float Surface { get { return this.Surface; } }
-        public float Circumference { get { return this.Circumference; } }
+        private float width;
 
         public Hexagon(float width)
         {
+            this.width = width;
+        }
+
+        public float Width { get { return this.Width; } }
+        public float Height { get { return this.Height; } }
+        public float Surface { get { return GetSurface(width); } }
+        public float Circumference { get { return width * 6; } }
+
+        static public float GetSurface(float width)
+        {
             //ここで底面積を計算
+            return (float)(width * width * 3 * Math.Sqrt(3) / 2);
         }
     }
-
-    /*
-    internal class Hexagon<Type> : ISolid
-        where Type : IShape
-    {
-    }
-    */
-
 }

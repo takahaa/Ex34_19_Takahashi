@@ -16,11 +16,17 @@ namespace Interface_ShapeSolid
             {
                 Console.WriteLine($"体積={solid.Volume},表面積={solid.Surface}");
             }
+
             //3角柱でジェネリック化したColumnを利用する
             Column<Triangle> trianglePrism = new Column<Triangle>(new Triangle(3, 2, 1), 4);
 
-            //3角柱
+            //4角柱
+            Column<RectAngle> box2 = new Column<RectAngle>(new RectAngle(2, 3), 5);
+
+            //6角柱
             Column<Hexagon> hexagon = new Column<Hexagon>(new Hexagon(2),5);
+
+            Console.WriteLine(hexagon.Surface);
 
             RectAngle[] rectAngles = new RectAngle[] { new RectAngle(3, 7), new RectAngle(4, 7),new RectAngle(7,3)};
             Console.WriteLine(rectAngles[0] == rectAngles[1]);
